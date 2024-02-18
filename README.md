@@ -2,25 +2,25 @@ To run script
 
 1. Create a virtual environment
 
-```powershell
+```bash
 python -m venv .venv
 ```
 
 2. Activate virtual environment
 
-```powershell
+```bash
 .venv/Scripts/activate
 ```
 
 3. Install required dependencies
 
-```powershell
+```bash
 pip install -r requirements.txt
 ```
 
 4. That's it! run the script
 5.
 
-```powershell
+```bash
 python main.py
 ```
