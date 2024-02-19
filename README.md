@@ -19,7 +19,6 @@ pip install -r requirements.txt
 ```
 
 4. That's it! run the script
-5.
 
 ```bash
 python main.py
