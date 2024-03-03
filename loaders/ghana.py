@@ -11,13 +11,18 @@ class GhanaLoader():
         
         with open(region_file_path, 'r' ) as file:
             file = json.load(file)
-            # rprint(file['features'][0])
+            
+            rprint(file)
+            rprint(file['features'][0])
             for feature in file['features']:
                rprint(feature['properties'])
                self.regions.append({
                    'region_name': feature['properties']['region'], 
                    'data': {
-                       'parent':  feature['geometry'],
+                       'parent': {
+                           'type': 'MultiPolygon',
+                           'coordinates': [feature['geometry']['coordinates']]
+                           },
                         
                        'children': []
                    }
@@ -36,8 +41,8 @@ class GhanaLoader():
                     if feature['properties']['NAME_1'] == region['region_name']:
                         region['data']['children'].append({
                             'name': feature['properties']['NAME_2'],
-                            'type': feature['geometry']['type'],
-                            'coordinates': feature['geometry']['coordinates'],
+                            'type': 'MultiPolygon',
+                            'coordinates': [feature['geometry']['coordinates']]
                         })
                         
     def generate(self,export_path):
@@ -46,3 +51,5 @@ class GhanaLoader():
                 
                  file.write(json.dumps(region['data']))
                  file.close
+                 
+                 
