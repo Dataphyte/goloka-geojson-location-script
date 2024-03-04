@@ -50,6 +50,6 @@ class GhanaLoader():
             with open('{}/{}.json'.format(export_path, region['region_name']), 'w') as file:
                 
                  file.write(json.dumps(region['data']))
-                 file.close
+                 file.close()
                  
                  

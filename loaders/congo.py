@@ -47,14 +47,16 @@ class CongoLoader():
                 
                 
             
-    def generate(self, export_path):
+    def generate(self, output_dir):
         for region in self.regions:
-            with open('{}/{}.json'.format(export_path, region['name']), 'w') as file:
+            with open('{}/{}.json'.format(output_dir, region['name']), 'w') as file:
                 
                 file.write(json.dumps({
                     'parent': region['parent'], 
                     'children': region['children']
                 }))
+                
+                file.close()
             
         
         
